@@ -10,5 +10,6 @@ Build 30 things in 30 days with 30 tutorials !!
 * [004 - Array Cardio 1](https://70928manson.github.io/30-Day-Vanilla-JS-Coding-Challenge/004-Array-Cardio-one/index.html) JavaScript Array 陣列操作方法
 * [005 - Flex Panels Image Gallery](https://70928manson.github.io/30-Day-Vanilla-JS-Coding-Challenge/005-Flex-Panel-Gallery/index.html) 點擊後會有特效的flex panels
 * [006 - Ajax Type Ahead](https://70928manson.github.io/30-Day-Vanilla-JS-Coding-Challenge/006-Type-Ahead/index.html) 可查詢美國各城市、州縣人口的search工具
+* [00˙ - Array Cardio 2](https://70928manson.github.io/30-Day-Vanilla-JS-Coding-Challenge/006-Type-Ahead/index.html) JavaScript Array 陣列操作方法
 
 連結: https://courses.wesbos.com/account/access/626a8f14fbd6c85ff535b08b
