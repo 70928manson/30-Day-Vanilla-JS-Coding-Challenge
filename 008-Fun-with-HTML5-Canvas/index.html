@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Canvas</title>
+</head>
+<body>
+<canvas id="draw" width="800" height="800"></canvas>
+<script>
+  const canvas = document.querySelector('#draw');  /*使用canvas，把他抓下來*/
+  const ctx = canvas.getContext('2d');  /*畫在ctx上，且是2d模式*/
+
+  /*設定畫布為整個螢幕*/
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  ctx.strokeStyle = '#BADA55'; /*color*/
+  ctx.lineJoin = 'round'; /*the end of the line*/
+  ctx.lineCap = 'round'; /*when line meet another line*/
+  ctx.lineWidth = 100;
+// ctx.globalCompositeOperation = 'multiply';
+
+  let isDrawing = false;
+  let lastX = 0;
+  let lastY = 0;
+  let hue = 0;
+  let direction = true;
+
+  function draw(e) {
+    if(!isDrawing) return; //stop the function from running when they are not moused down
+    console.log(e);
+
+    ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+
+    ctx.beginPath();
+    ctx.moveTo(lastX, lastY);
+    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.stroke();
+    [lastX, lastY] = [e.offsetX, e.offsetY];
+
+    hue++;
+    if(hue >= 360){
+      hue = 0;
+    }
+
+    if(ctx.lineWidth >= 100 || ctx.lineWidth <= 1){
+      direction = !direction
+    }
+    if(direction){
+      ctx.lineWidth++;
+    }else {
+      ctx.lineWidth--;
+    }
+  }
+
+  canvas.addEventListener('mousemove', draw);
+  canvas.addEventListener('mousedown', (e) => {
+    isDrawing = true;
+    [lastX, lastY] = [e.offsetX, e.offsetY];  /*避免從(0, 0)開始 以及避免從上一線的終點開始*/
+  }); /*滑鼠按住時 true*/
+  canvas.addEventListener('mouseup', () => isDrawing = false);  /*滑鼠沒按住時 false*/
+  canvas.addEventListener('mouseout', () => isDrawing = false);  /*滑鼠沒按住時 false*/
+  //0602
+</script>
+
+<style>
+  html, body {
+    margin: 0;
+  }
+</style>
+
+</body>
+</html>
